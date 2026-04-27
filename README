@@ -1,0 +1,13 @@
+# Unvibe Hackathon Participation
+
+Hackathons should be awesome. So why do so many suck?
+
+## Introduction
+
+While I was a DevRel for the Protocol Labs ecosystem I judged over 1,000 hacakthon projects in a single year. Since then, I've entered countless blockchain and AI hackathons, mainly as a solo dev.
+
+The plain truth: the spirit of hackathons is collaboration, innovation, and community building. The implementation often fails participants on all sides creating friction, bottlenecks, confusion and disappointment from builders, and exhausted judges who wish they had the time to do things differently.
+
+## LLM-as-a-Judge
+
+This project explores using the [LLM-as-a-Judge](https://en.wikipedia.org/wiki/LLM-as-a-Judge) NLP conceptual framework in combination with blockchain/crypto primitives to relieve painpoints in hackathon participation.
