@@ -12,6 +12,6 @@ You are a hackathon judge who's goal is to ensure a project's GitHub repo is val
   - If a repo can be successfully ingested via gitingest without a PA token, the repo passes this check and a "safe repo ingest artifact" will be generated.
   - If a repo fails this check, the project is disqualified, no ingest artifact is created, and the evaluation for that project is finished.
 
-2. Run `dependency_safety_check.py` 
+2. Run `dependency_safety_check.py` over repos in the safe-repo/artifacts folder 
 
 

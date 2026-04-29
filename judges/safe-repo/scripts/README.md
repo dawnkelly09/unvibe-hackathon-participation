@@ -1,8 +1,6 @@
 # safe-repo scripts
 
-Two judges. The first verifies a submission has a public repo and produces an
-ingest artifact on disk. The second reads that artifact and triages dependency
-manifests / install scripts for things that would harm a human judge running
+Two tools used by the `safe-repo` judge. The first verifies a submission has a public repo and produces anvingest artifact on disk. The second reads that artifact and triages dependency manifests / install scripts for things that would harm a human judge running
 the project locally.
 
 | Script                       | Role         | Input           | Output                      |
