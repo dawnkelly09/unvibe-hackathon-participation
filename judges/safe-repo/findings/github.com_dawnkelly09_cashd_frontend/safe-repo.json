@@ -1,0 +1,21 @@
+{
+  "judge": "safe-repo",
+  "repo": "https://github.com/dawnkelly09/cashd_frontend",
+  "slug": "github.com_dawnkelly09_cashd_frontend",
+  "passed": false,
+  "stage_complete": true,
+  "verdict": "failed-public-repo",
+  "sub_findings": {
+    "public-repo-check": {
+      "passed": false,
+      "artifact_path": null,
+      "error": "ValueError: Repository not found. Make sure it is public or that you have provided a valid token."
+    },
+    "dependency-safety-check": {
+      "passed": false,
+      "severity": "skipped",
+      "findings_path": null
+    }
+  },
+  "completed_at": "2026-04-29T22:30:27+00:00"
+}

@@ -19,7 +19,7 @@ from pathlib import Path
 from gitingest import ingest
 
 JUDGE_NAME = "safe-repo"
-DEFAULT_ARTIFACT_DIR = Path(__file__).parent / "artifacts"
+DEFAULT_ARTIFACT_DIR = Path(__file__).parent.parent / "artifacts" / "repo-ingest-dump"
 
 
 @contextmanager

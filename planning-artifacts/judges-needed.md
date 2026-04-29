@@ -6,11 +6,17 @@ A look at which judges I need to build to complete this flow:
 
 (thanks for your input @bguiz!)
 
-- repo is public
-- repo has a custom README that describes the project and has the required sections
-- repo is safe from malicious code or packages (npm installs, etc.)
-- repo snapshot is captured (gitingest with hash)
-  - protects against deleted repos or changes after hackathon has finished
+- repo is public: `public_repo_check.py`
+- repo snapshot is captured (gitingest with hash) to protect against deleted repos or changes after hackathon has finished: output to `artifacts/repo-ingest-dump`
+- repo is safe from malicious code or packages (npm installs, etc.): `dependency_safethy_check.py`
+  - output JSON to `artifacts/deps-safety-check` with findings
+
+## Hackathon Qualified Check
+
+- Check against event policy: set once per event, stays static during judging
+  - start date, submission deadline, new repo check
+- Check against sponsor consensus: source of shared compute for data a majority of sponsors want -- not a gate. All downstream judges can refer to this data if interested in the findings
+  - repo has a custom README that describes the project and has the required sections
 
 ## Sponsor Check
 

@@ -18,6 +18,8 @@ Example:
 uv run python judges/safe-repo/safe-repo.py https://github.com/octocat/Hello-World
 ```
 
+uv run python judges/safe-repo/scripts/safe_repo_judge.py https://github.com/dawnkelly09/cashd_frontend
+
 Override the artifact directory:
 
 ```sh

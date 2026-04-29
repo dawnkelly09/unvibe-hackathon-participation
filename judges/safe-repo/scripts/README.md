@@ -59,19 +59,33 @@ the project locally.
 Top-level `severity` is the highest severity in `findings[]`. Exit code is
 `0` when `passed` is `true`, `1` otherwise.
 
+### Layout
+
+```
+judges/safe-repo/
+├── scripts/
+│   ├── public_repo_check.py        # writes ingest artifact (.txt)
+│   └── dependency_safety_check.py  # writes judge result (.json)
+└── artifacts/
+    ├── repo-ingest-dump/           # input artifacts produced by public_repo_check
+    └── deps-safety-check/          # JSON results produced by dependency_safety_check
+```
+
 ### Usage
 
 ```bash
 # Direct path:
-python dependency_safety_check.py path/to/artifact.txt
+python dependency_safety_check.py judges/safe-repo/artifacts/repo-ingest-dump/github.com_dawnkelly09_BYTEBEAST-ARENA.txt
 
-# Or resolve under --artifact-dir (matches public_repo_check convention):
+# Or resolve under --artifact-dir (defaults to repo-ingest-dump):
 python dependency_safety_check.py \
-  --artifact-dir judges/safe-repo/artifacts \
   --artifact-name github.com_dawnkelly09_BYTEBEAST-ARENA.txt
 ```
 
-stdout is reserved for the JSON output. Status messages, if any, go to stderr.
+By default the JSON result is also written to
+`judges/safe-repo/artifacts/deps-safety-check/<artifact_stem>.json` for
+observability. Override with `--output-dir` or suppress with `--no-write`.
+stdout is reserved for the JSON output; status messages go to stderr.
 
 ### Extending
 

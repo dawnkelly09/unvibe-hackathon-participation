@@ -1,11 +1,8 @@
 """dependency_safety_check.py — second judge in the safe-repo stage.
 
-Reads the ingest artifact produced by `public_repo_check.py` and scans
-dependency manifests and install scripts for things that would harm a human
-judge running the project locally. Emits JSON to stdout.
+Reads the ingest artifact produced by `public_repo_check.py` and scans dependency manifests and install scripts for things that would harm a human judge running the project locally. Emits JSON to stdout.
 
-Scope: triage, not a SAST scanner. Threat model is "what could silently hose
-a judge's laptop during ``npm install`` or ``./setup.sh``."
+Scope: triage, not a SAST scanner. Threat model is "what could silently hose a judge's laptop during ``npm install`` or ``./setup.sh``."
 """
 
 from __future__ import annotations
@@ -18,7 +15,9 @@ import tomllib
 from pathlib import Path
 
 JUDGE_NAME = "dependency-safety"
-DEFAULT_ARTIFACT_DIR = Path(__file__).parent / "artifacts"
+_ARTIFACTS_ROOT = Path(__file__).parent.parent / "artifacts"
+DEFAULT_ARTIFACT_DIR = _ARTIFACTS_ROOT / "repo-ingest-dump"
+DEFAULT_OUTPUT_DIR = _ARTIFACTS_ROOT / "deps-safety-check"
 
 
 # ---------------------------------------------------------------------------
@@ -700,12 +699,23 @@ def main() -> int:
         "--artifact-dir",
         type=Path,
         default=DEFAULT_ARTIFACT_DIR,
-        help=f"directory containing artifacts (default: {DEFAULT_ARTIFACT_DIR})",
+        help=f"directory containing ingest artifacts (default: {DEFAULT_ARTIFACT_DIR})",
     )
     parser.add_argument(
         "--artifact-name",
         type=str,
         help="resolve artifact relative to --artifact-dir",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=DEFAULT_OUTPUT_DIR,
+        help=f"directory for judge JSON output (default: {DEFAULT_OUTPUT_DIR})",
+    )
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="suppress writing the JSON result to --output-dir",
     )
     args = parser.parse_args()
 
@@ -719,6 +729,13 @@ def main() -> int:
         return 2
 
     result = judge(artifact_path)
+
+    if not args.no_write:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        out_path = args.output_dir / f"{artifact_path.stem}.json"
+        out_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+        print(f"wrote {out_path}", file=sys.stderr)
+
     json.dump(result, sys.stdout, indent=2)
     sys.stdout.write("\n")
     return 0 if result["passed"] else 1
