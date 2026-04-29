@@ -1,0 +1,16 @@
+[project]
+name = "open-agents-eth-global"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "gitingest>=0.3.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["judges"]
