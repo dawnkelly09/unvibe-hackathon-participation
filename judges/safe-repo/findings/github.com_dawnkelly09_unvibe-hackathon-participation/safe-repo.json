@@ -1,0 +1,21 @@
+{
+  "judge": "safe-repo",
+  "repo": "https://github.com/dawnkelly09/unvibe-hackathon-participation",
+  "slug": "github.com_dawnkelly09_unvibe-hackathon-participation",
+  "passed": true,
+  "stage_complete": true,
+  "verdict": "passed",
+  "sub_findings": {
+    "public-repo-check": {
+      "passed": true,
+      "artifact_path": "/Users/dawnkelly/open-agents-eth-global/judges/safe-repo/artifacts/repo-ingest-dump/github.com_dawnkelly09_unvibe-hackathon-participation.txt",
+      "error": null
+    },
+    "dependency-safety-check": {
+      "passed": true,
+      "severity": "pass",
+      "findings_path": "/Users/dawnkelly/open-agents-eth-global/judges/safe-repo/artifacts/deps-safety-check/github.com_dawnkelly09_unvibe-hackathon-participation.json"
+    }
+  },
+  "completed_at": "2026-04-30T18:48:07+00:00"
+}

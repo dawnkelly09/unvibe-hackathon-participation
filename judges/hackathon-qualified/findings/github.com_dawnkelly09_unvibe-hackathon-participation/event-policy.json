@@ -1,0 +1,31 @@
+{
+  "judge": "event-policy",
+  "repo": "https://github.com/dawnkelly09/unvibe-hackathon-participation",
+  "slug": "github.com_dawnkelly09_unvibe-hackathon-participation",
+  "passed": true,
+  "stage_complete": true,
+  "verdict": "passed",
+  "sub_findings": {
+    "first-commit-in-window": {
+      "passed": true,
+      "first_commit_date": "2026-04-26T17:38:47-07:00",
+      "enforced": true,
+      "note": null
+    },
+    "last-commit-before-deadline": {
+      "passed": true,
+      "last_commit_date": "2026-04-29T15:40:18-07:00",
+      "note": null
+    },
+    "timeline-plausibility": {
+      "severity": "pass",
+      "warnings": []
+    }
+  },
+  "event_config": {
+    "start_date": "2026-04-23",
+    "submission_deadline": "2026-05-03T09:00:00-07:00",
+    "new_repo_required": true
+  },
+  "completed_at": "2026-04-30T18:48:14+00:00"
+}

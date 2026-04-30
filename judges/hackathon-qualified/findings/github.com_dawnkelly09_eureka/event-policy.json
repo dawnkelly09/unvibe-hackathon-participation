@@ -1,0 +1,31 @@
+{
+  "judge": "event-policy",
+  "repo": "https://github.com/dawnkelly09/eureka",
+  "slug": "github.com_dawnkelly09_eureka",
+  "passed": false,
+  "stage_complete": true,
+  "verdict": "failed-first-commit",
+  "sub_findings": {
+    "first-commit-in-window": {
+      "passed": false,
+      "first_commit_date": "2026-04-01T11:32:16-07:00",
+      "enforced": true,
+      "note": "first commit 2026-04-01T11:32:16-07:00 predates start_date 2026-04-23"
+    },
+    "last-commit-before-deadline": {
+      "passed": true,
+      "last_commit_date": "2026-04-10T08:15:06-07:00",
+      "note": null
+    },
+    "timeline-plausibility": {
+      "severity": "pass",
+      "warnings": []
+    }
+  },
+  "event_config": {
+    "start_date": "2026-04-23",
+    "submission_deadline": "2026-05-03T09:00:00-07:00",
+    "new_repo_required": true
+  },
+  "completed_at": "2026-04-30T18:47:26+00:00"
+}

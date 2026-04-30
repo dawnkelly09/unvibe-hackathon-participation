@@ -15,8 +15,6 @@ A look at which judges I need to build to complete this flow:
 
 - Check against event policy: set once per event, stays static during judging
   - start date, submission deadline, new repo check
-- Check against sponsor consensus: source of shared compute for data a majority of sponsors want -- not a gate. All downstream judges can refer to this data if interested in the findings
-  - repo has a custom README that describes the project and has the required sections
 
 ## Sponsor Check
 
