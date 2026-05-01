@@ -11,3 +11,5 @@ The plain truth: the spirit of hackathons is collaboration, innovation, and comm
 ## LLM-as-a-Judge
 
 This project explores using the [LLM-as-a-Judge](https://en.wikipedia.org/wiki/LLM-as-a-Judge) NLP conceptual framework in combination with blockchain/crypto primitives to relieve painpoints in hackathon participation.
+
+Initially, I set out to create a judge for each track this hacakthon sponsors. The scope for this submission was narrowed to demonstrate the LLM-as-a-judge pattern end-to-end through a single sponsor judge (0G), with the supporting infrastructure (safe-repo, event-policy, orchestrator) and conventions (per-sponsor SKILL.md, calibration discipline, on-disk findings contract) designed to scale to additional sponsors.
