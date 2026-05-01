@@ -1,0 +1,92 @@
+================================================
+SAFE-REPO INGEST ARTIFACT
+================================================
+Source URL: https://github.com/test/rich
+Ingested at: 2026-04-29T12:00:00+00:00
+Repository: test/rich
+Commit: 0000000abc
+Files analyzed: 4
+
+================================================
+TREE
+================================================
+Directory structure:
+└── test-rich/
+    ├── README.md
+    ├── package.json
+    ├── contracts/
+    │   └── MyContract.sol
+    └── examples/
+        └── agent.ts
+
+================================================
+CONTENTS
+================================================
+================================================
+FILE: README.md
+================================================
+# RichRepo
+
+A demo agent that uses 0G Storage and 0G Compute.
+
+## Setup
+
+To get started, run `npm install`.
+
+## Architecture
+
+![architecture diagram](docs/architecture.png)
+
+## Demo
+
+Watch the demo: https://www.youtube.com/watch?v=abc123def
+
+[Live demo](https://richrepo.vercel.app)
+
+## Tracks
+
+This project is submitted to the framework track.
+
+## iNFT
+
+Includes an iNFT (ERC-7857) implementation. Contract: 0x1234567890abcdef1234567890abcdef12345678
+
+## Contact
+
+Telegram: @richdev
+
+Team: see CONTRIBUTORS.md
+
+
+================================================
+FILE: package.json
+================================================
+{
+  "name": "rich-repo",
+  "version": "0.0.1",
+  "dependencies": {
+    "@0glabs/0g-ts-sdk": "^0.1.0"
+  }
+}
+
+
+================================================
+FILE: contracts/MyContract.sol
+================================================
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+// Deployed at 0xabcdefABCDEF1234567890abcdef1234567890ab
+contract MyContract {
+    string public iNFT_label = "iNFT";
+}
+
+
+================================================
+FILE: examples/agent.ts
+================================================
+import { startAgent } from "@0glabs/0g-ts-sdk";
+
+startAgent({ id: "demo" });
+
+

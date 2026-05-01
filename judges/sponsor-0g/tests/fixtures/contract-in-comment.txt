@@ -1,0 +1,36 @@
+================================================
+SAFE-REPO INGEST ARTIFACT
+================================================
+Source URL: https://github.com/test/comment-addr
+Ingested at: 2026-04-29T12:00:00+00:00
+Repository: test/comment-addr
+Commit: 0000000mno
+Files analyzed: 2
+
+================================================
+TREE
+================================================
+Directory structure:
+└── test-comment-addr/
+    ├── README.md
+    └── src/
+        └── foo.ts
+
+================================================
+CONTENTS
+================================================
+================================================
+FILE: README.md
+================================================
+# Address in comment
+
+The contract address is buried in a code comment, not the README.
+
+
+================================================
+FILE: src/foo.ts
+================================================
+// Deployed at 0x1111111111111111111111111111111111111111
+export const TOKEN = "X";
+
+

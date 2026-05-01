@@ -1,0 +1,5 @@
+https://github.com/chevoisiatesalvati/schwarma-orchestrator
+https://github.com/ahippoly/OnChainClaw
+https://github.com/kryczkal/EthCannes2026
+https://github.com/NickVanzo/hackathon-eth-global-2026
+https://github.com/briacSck/OpenDND_EthglobalCannes26

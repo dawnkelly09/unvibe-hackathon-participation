@@ -57,6 +57,7 @@ Two kinds of model calls. Both consume the gitingest artifact and the Phase 1 JS
 - Inputs: gitingest text, Phase 1 JSON, the working definitions of `framework` and `agents` tracks given above, and 0G's four named components (`Storage`, `DA`, `Compute`, `Chain`).
 - Output (strict JSON): `{ "framework_applicable": bool, "agents_applicable": bool, "components_used": [subset of Storage|DA|Compute|Chain], "reasoning": string (1–3 sentences), "confidence": "low"|"medium"|"high" }`.
 - `components_used` is the LLM's assessment of which of the four named components are *meaningfully integrated* — that is, invoked at runtime in the project's primary flow, not merely listed in a manifest or namechecked in the README. Other 0G libraries not part of the four do not count, even if they're used; this is per the prize-track scope.
+- A project may consume a named component via an OpenAI-compatible HTTP endpoint, a custom RPC, or another non-SDK path rather than via the official 0G SDK. This counts toward `components_used` when the operation is actually happening on 0G's infrastructure (or a node operator's 0G endpoint), regardless of the client-side library. Phase 2 should distinguish these in its reasoning ("Compute via HTTP proxy to a 0G endpoint" vs. "Compute via 0G SDK") because the integration depth differs, but neither pattern disqualifies a project from `components_used` membership.
 - `confidence` reflects the LLM's certainty about classification, not about the project's quality. Low confidence is a signal for human review, not a fail.
 
 **Call B — per-track rubric (runs once per applicable track):**
@@ -90,7 +91,7 @@ Per-track rubric items (derived directly from the prize page submission requirem
 | `working-example-agent` | framework | Framework-only — "at least one working example agent built using your framework/tooling" |
 | `architecture-diagram` | framework | Framework-only — "optional but strongly recommended"; contributes signal but never sets `fail-rubric` on its own. Treated as a soft item: reported, never gates. |
 | `agent-communication-explanation` | agents | Agents-only, conditional on the LLM judging the project is a swarm/multi-agent system; otherwise `n-a`. |
-| `inft-link-and-proof` | agents | Agents-only, conditional on the LLM judging the project is an iNFT submission; otherwise `n-a`. |
+| `inft-link-and-proof` | agents | Agents-only, conditional on the LLM judging the project is an iNFT submission; otherwise `n-a`. **Strict ERC-7857 reading:** the project must implement ERC-7857 (intelligence/memory embedded in the NFT itself) for this item to `pass`. ERC-721 NFTs used as access tokens or gating mechanisms do not satisfy this item — Phase 2 records `fail` on the item (not `n-a`) when a project makes an iNFT claim with a non-ERC-7857 contract, and surfaces the contract standard in its reasoning. |
 
 ### Repo-only evaluation
 
@@ -211,3 +212,4 @@ This judge intentionally does not:
 - Make a final prize-pool ranking decision. Stack-ranking against other qualifying projects is the prize-pool coordinator's job. This judge produces the per-project per-track verdict the coordinator stack-ranks on.
 - Re-ingest or re-clone the repo. It consumes the gitingest artifact written by `safe-repo` and does not touch the network for repo data.
 - Generate builder feedback prose. The per-track reasoning strings and per-call LLM records are inputs to a downstream builder-feedback judge, not the feedback itself.
+- Resolve ambiguity in the 0G prize page beyond the two interpretations stated above (strict ERC-7857 for iNFT, HTTP-proxy use counts toward `components_used`). Other interpretive questions that arise during operation should be raised back to the rubric, not decided ad hoc by Phase 2.

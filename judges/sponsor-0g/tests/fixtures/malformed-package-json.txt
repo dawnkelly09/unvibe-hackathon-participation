@@ -1,0 +1,38 @@
+================================================
+SAFE-REPO INGEST ARTIFACT
+================================================
+Source URL: https://github.com/test/malformed
+Ingested at: 2026-04-29T12:00:00+00:00
+Repository: test/malformed
+Commit: 0000000jkl
+Files analyzed: 2
+
+================================================
+TREE
+================================================
+Directory structure:
+└── test-malformed/
+    ├── README.md
+    └── package.json
+
+================================================
+CONTENTS
+================================================
+================================================
+FILE: README.md
+================================================
+# Broken
+
+Test repo with a malformed package.json.
+
+
+================================================
+FILE: package.json
+================================================
+{
+  "name": "broken",
+  "dependencies": {
+    "@0glabs/0g-ts-sdk": "^0.1.0",
+    "react": "18"
+
+

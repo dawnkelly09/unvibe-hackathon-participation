@@ -1,0 +1,21 @@
+{
+  "judge": "safe-repo",
+  "repo": "https://github.com/agoston0x/beepm",
+  "slug": "github.com_agoston0x_beepm",
+  "passed": true,
+  "stage_complete": true,
+  "verdict": "passed",
+  "sub_findings": {
+    "public-repo-check": {
+      "passed": true,
+      "artifact_path": "/Users/dawnkelly/open-agents-eth-global/judges/safe-repo/artifacts/repo-ingest-dump/github.com_agoston0x_beepm.txt",
+      "error": null
+    },
+    "dependency-safety-check": {
+      "passed": true,
+      "severity": "warning",
+      "findings_path": "/Users/dawnkelly/open-agents-eth-global/judges/safe-repo/artifacts/deps-safety-check/github.com_agoston0x_beepm.json"
+    }
+  },
+  "completed_at": "2026-05-01T18:48:26+00:00"
+}
