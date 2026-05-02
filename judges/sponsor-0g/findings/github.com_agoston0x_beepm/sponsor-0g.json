@@ -1,0 +1,27 @@
+{
+  "judge": "sponsor-0g",
+  "repo": "https://github.com/agoston0x/beepm",
+  "slug": "github.com_agoston0x_beepm",
+  "passed": false,
+  "stage_complete": true,
+  "verdict": "failed",
+  "declared_tracks": [],
+  "inferred_tracks": [],
+  "components_used": [],
+  "tracks": {
+    "framework": {
+      "verdict": "not-classified",
+      "reasoning": "Phase 2 LLM evaluation did not complete \u2014 track was not classified. Reason: Traceback (most recent call last):\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 798, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 780, in main\n    result = run_llm_evaluation(\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 609, in run_llm_evaluation\n    classification = _validate_call_a(raw_a)\n                     ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 498, in _validate_call_a\n    raise LLMSchemaError(f\"Call A: missing field '{field}'\")\nLLMSchemaError: Call A: missing field 'framework_applicable'",
+      "rubric_items": null
+    },
+    "agents": {
+      "verdict": "not-classified",
+      "reasoning": "Phase 2 LLM evaluation did not complete \u2014 track was not classified. Reason: Traceback (most recent call last):\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 798, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 780, in main\n    result = run_llm_evaluation(\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 609, in run_llm_evaluation\n    classification = _validate_call_a(raw_a)\n                     ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/scripts/llm_evaluation.py\", line 498, in _validate_call_a\n    raise LLMSchemaError(f\"Call A: missing field '{field}'\")\nLLMSchemaError: Call A: missing field 'framework_applicable'",
+      "rubric_items": null
+    }
+  },
+  "confidence": null,
+  "llm_call_records_path": "/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/artifacts/llm-call-records/github.com_agoston0x_beepm",
+  "completed_at": "2026-05-02T18:47:28+00:00",
+  "upstream_check_skipped": true
+}

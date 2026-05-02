@@ -1,0 +1,41 @@
+{
+  "judge": "sponsor-0g",
+  "repo": "https://github.com/AtlasVIA/petprotect",
+  "slug": "github.com_AtlasVIA_petprotect",
+  "passed": true,
+  "stage_complete": true,
+  "verdict": "passed",
+  "declared_tracks": [],
+  "inferred_tracks": [
+    "agents"
+  ],
+  "components_used": [
+    "Chain"
+  ],
+  "tracks": {
+    "framework": {
+      "verdict": "not-classified",
+      "reasoning": "Project does not fit the framework track shape per Call A; rubric was not applied.",
+      "rubric_items": null
+    },
+    "agents": {
+      "verdict": "pass",
+      "reasoning": "The project uses the @0glabs/0g-serving-broker package, as evidenced by the `package.json` file. The README provides a clear description of the tech stack and usage of 0G for document analysis. However, due to the nature of this track's submission being an end-user-facing agent, items like 'agent-communication-explanation' and 'inft-link-and-proof' are not applicable. The project does not contain any live demo links or team contact info.",
+      "rubric_items": {
+        "project-name-and-description": "pass",
+        "contract-deployment-addresses": "pass",
+        "public-repo-with-setup": "pass",
+        "demo-video-link": "needs-human-verification",
+        "live-demo-link": "needs-human-verification",
+        "protocol-features-explained": "pass",
+        "team-contact-info": "needs-human-verification",
+        "agent-communication-explanation": "n-a",
+        "inft-link-and-proof": "n-a"
+      }
+    }
+  },
+  "confidence": "high",
+  "llm_call_records_path": "/Users/dawnkelly/open-agents-eth-global/judges/sponsor-0g/artifacts/llm-call-records/github.com_AtlasVIA_petprotect",
+  "completed_at": "2026-05-02T18:45:19+00:00",
+  "upstream_check_skipped": true
+}

@@ -19,8 +19,18 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Load .env from the project root if python-dotenv is available.
+# This makes ANTHROPIC_API_KEY (and any other env vars) work without
+# requiring the operator to source .env into the shell.
+try:
+    from dotenv import load_dotenv
+    _PROJECT_ROOT = Path(__file__).resolve().parent.parent
+    load_dotenv(_PROJECT_ROOT / ".env")
+except ImportError:
+    pass
+
 OLLAMA_ENDPOINT = "http://localhost:11434/api/chat"
-DEFAULT_TIMEOUT_SECONDS = 60
+DEFAULT_TIMEOUT_SECONDS = 300
 _SLUG_RE = re.compile(r"[^A-Za-z0-9]+")
 
 
@@ -218,13 +228,59 @@ def _call_anthropic(model_name: str, prompt: str, system: str | None, max_tokens
 
 
 def _strip_json_artifacts(text: str) -> str:
+    """Extract a parseable JSON object from a model response.
+
+    Models sometimes wrap JSON in code fences, prepend a preamble like
+    "Here's the JSON:", or append commentary after the closing brace.
+    This helper:
+
+    1. Strips leading/trailing code fences (```/```json).
+    2. Locates the first '{' (skipping any preamble prose).
+    3. Returns the substring through the matching closing '}', so any
+       trailing prose is discarded.
+
+    String contents are respected so a '}' inside a JSON string value
+    doesn't end the object early. Backslash escapes inside strings are
+    handled. If no balanced object is found, the cleaned-up string is
+    returned as-is and json.loads will raise a clear error upstream.
+    """
     s = text.strip()
+    # Strip code fences
     if s.startswith("```"):
         nl = s.find("\n")
         s = s[nl + 1:] if nl != -1 else ""
     if s.endswith("```"):
         s = s[:-3]
-    return s.strip()
+    s = s.strip()
+    # Find the first '{' (allows a model preamble before the JSON).
+    start = s.find("{")
+    if start == -1:
+        return s
+    # Walk the string finding the matching close brace, respecting
+    # string contents and escapes.
+    depth = 0
+    in_string = False
+    escape = False
+    for i in range(start, len(s)):
+        ch = s[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return s[start:i + 1]
+    # Unbalanced — let the caller's json.loads raise a clear error.
+    return s[start:]
 
 
 def _write_record(record_dir: Path, label: str, timestamp: datetime, record: dict) -> None:

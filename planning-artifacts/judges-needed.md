@@ -45,7 +45,9 @@ A widely usable version of a platform like this should consider some options lik
 - newer projects use the safe-repo and hackathon-qualified checks for screening but BYO judging (via human or their own agents)
 - a way for projects to configure their own judging agent prior to the event (the product team is where the expertise is, not the hackathon organizers)
 
-## Prize Pool Coordinator
+## Prize Pool Coordinator (out of scope)
+
+NOTE: I've determined I don't have enough time to implement this but, it is something I'd like to pursue to keep expanding on what this platform can do beyond the hackathon.
 
 - Projects meeting technical competency for a sponsor track added to prize pool
 - Stack rank against how well they meet track requirements
