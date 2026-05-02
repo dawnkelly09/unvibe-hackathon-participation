@@ -1,5 +1,0 @@
-I was able to find some example projects, but they seem to be sort of light and general integrations, not enough to build a judge from for this submission. 
-
-https://github.com/lfglabs-dev/explain.md
-https://github.com/hgunduzoglu/A2A
-https://github.com/BlossomLabs/sneaky

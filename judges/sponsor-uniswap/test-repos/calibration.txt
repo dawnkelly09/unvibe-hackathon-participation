@@ -1,5 +1,0 @@
-I was able to find some example projects, but they seem to be sort of light and general integrations, not enough to build a judge from for this submission. 
-
-https://github.com/CJ42/uniswap-mcp-server-rust
-https://github.com/UniswapExecutionGuard/uniswapI
-https://github.com/akshatmittal/eth-bangkok-2024-v4-replayer
